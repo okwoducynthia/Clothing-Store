@@ -1,0 +1,57 @@
+.contact-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.541)), url("./bg-images/bg4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.contact-hero h1 {
+  font-size: 40px;
+  font-family: var(--oswalt-font);
+  color: var(--dark-orange);
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact-sub-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  height: 70vh;
+}
+.contact-sub-container div {
+  border: 1px solid #ddd;
+  width: 30%;
+  height: 200px;
+  text-align: center;
+  align-content: center;
+  border-radius: 7px;
+}
+.contact-sub i {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.contact-sub p {
+  font-size: 17px;
+  font-family: var(--open-san);
+  color: rgba(51, 51, 51, 0.925);
+}
+
+
+/* ====MEDIA QUERY STARTS HERE==== */
+
+@media (max-width: 834px) {
+  .contact-sub-container {
+    flex-direction: column;
+    height: 100%;
+    padding: 50px 0;
+  }
+  .contact-sub-container div {
+    width: 80%
+  }
+}
+
+@media (max-width: 480px) {
+
+}

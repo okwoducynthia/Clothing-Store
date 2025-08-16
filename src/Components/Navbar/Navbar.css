@@ -1,0 +1,121 @@
+
+/* ====NAVBAR SECTION STARTS HERE==== */
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--white-color);
+  padding-top: 15px;
+}
+.header-container div {
+  width: 30%;
+}
+.header-logo {
+  text-align: center;
+}
+.header-logo img {
+  width: 35%;
+}
+.header-navlinks {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  gap: 15px;
+}
+.header-navlinks li a {
+  text-decoration: none;
+  color: var(--black-color);
+  font-size: 18px;
+  font-family: var(--open-sans);
+  transition-duration: 0.3s;
+  position: relative;
+  transition-timing-function: ease-in-out;
+}
+.header-navlinks li a:hover{
+  color: var(--dark-orange);
+}
+.header-navlinks li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: var(--dark-orange);
+  margin-bottom: -10px;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+}
+.header-navlinks li a:hover::after {
+  width: 100%;
+}
+.header-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+.header-cart p {
+  font-size: 17px;
+  font-weight: 600;
+}
+.header-cart i:nth-of-type(1) {
+  color: var(--orange-color);
+}
+.header-cart i span {
+  background-color: var(--orange-color);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8px;
+  font-weight: 800;
+  margin-top: -30px;
+  color: var(--white-color);
+}
+.header-cart i:nth-of-type(2) {
+  font-size: 19px;
+}
+.header-nav-icon {
+  padding: 7px;
+  background-color: var(--orange-color);
+  color: white;
+  cursor: pointer;
+  border: none;
+  display: none;
+}
+.header-nav-icon i {
+  font-size: 20px;
+}
+/* ====NAVBAR SECTION ENDS HERE==== */
+
+/* ====MEDIA QUERY STARTS HERE==== */
+@media (max-width: 1324px) {
+  .header-logo img {
+    width: 60%;
+  }
+}
+
+@media (max-width: 834px) {
+  .header-navlinks li {
+    display: none;
+  }
+  .header-cart {
+    display: none;
+  }
+  .header-nav-icon {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    height: 10vh;
+  }
+  .header-logo img {
+    width: 100%;
+  }
+}

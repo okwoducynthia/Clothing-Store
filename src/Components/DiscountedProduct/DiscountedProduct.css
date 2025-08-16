@@ -1,0 +1,74 @@
+
+.discount-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  width: 19%;
+}
+.discount-item img {
+  max-width: 100%;
+}
+.discount-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.discount-heading h1 {
+  color: var(--dark-orange);
+  font-family: var(--oswalt-font);
+  font-weight: 500;
+}
+p {
+  font-size: 16px;
+}
+h4 {
+  font-family: var(--oswalt-font);
+}
+i {
+  font-size: 18px;
+}
+#empty-star {
+  color: rgba(33, 43, 54, 0.349);
+}
+#star {
+  color: var(--star-color);  
+}
+.discount-btn {
+  background-color: var(--dark-orange);
+  width: 100%;
+  font-weight: bold;
+  padding: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;  
+  transition-duration: 0.3s;
+}
+.discount-btn:hover {
+  background-color: rgba(189, 101, 43, 0.836);
+}
+
+
+/* ====MEDIA QUERY STARTS HERE==== */
+@media (max-width: 1324px) {
+
+}
+
+@media (max-width: 834px) {
+  .discount-item {
+    width: 40%;
+  }
+ .discount-heading h1 {
+    font-size: 25px;
+  }
+  .discount-item img {
+    margin: auto;
+  }
+  .discount-heading {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  
+}

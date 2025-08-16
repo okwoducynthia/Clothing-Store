@@ -1,0 +1,22 @@
+import { Link } from "react-router-dom"
+import "./Auth.css"
+
+const Auth = () => {
+  return (
+    <div className="home-container">
+        <Link to={"/sign-up"}>
+        <button className="sign-up-btn">Sign Up</button>
+        </Link>
+
+        <Link to={"/login"}>
+        <button className="login-btn">Login</button>
+        </Link>
+
+        <Link to={"/home"}>
+        <button className="login-btn">Home Page</button>
+        </Link>
+    </div>
+  )
+}
+
+export default Auth

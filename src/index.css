@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====COLOUR AND TYPOGRAPHY==== */
+:root {
+  --sky-blue: rgb(241, 248, 246);
+  --navy-blue: rgb(48, 76, 114);
+  --orange-color: rgb(255, 103, 1);
+  --dark-orange:  rgb(189, 101, 43);
+  --star-color: rgb(253, 186, 116);
+  --white-color: white;
+  --black-color: black;
+
+  --oswalt-font: "Oswald", sans-serif;
+  --outfit-font: "Outfit", sans-serif;
+  --open-san: "Open Sans", sans-serif;
+}
+
+/* body {
+  background-color: var(--sky-blue);
+} */
+
+a {
+  text-decoration: none;
+}
+
+/* a:active {
+  background-color: var(--navy-blue);
+  color: var(--white-color);
+} */
+
+li {
+  list-style: none;
+}
+
+p{
+  font-family: var(--open-san);
+}
