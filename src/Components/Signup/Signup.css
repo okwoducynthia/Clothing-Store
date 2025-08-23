@@ -17,7 +17,9 @@ h3 {
   margin-bottom: 20px;
 }
 .form-container {
-height: 60vh;
+  height: 60vh;
+  width: 40%;
+  margin: auto;
 }
 label {
   font-family: var(--outfit-font);
@@ -26,18 +28,19 @@ label {
   margin-bottom: 10px;
 }
 input {
-  width: 400px;
+  width: 100%;
   height: 40px;
   margin-bottom: 20px;
   font-size: 17px;
   padding: 10px;
   border-radius: 7px;
+  border: 1px solid black;
 }
 .form-group {
   display: flex;
   flex-direction: column;
 }
-.submit-button-container button{
+.submit-button-container button {
   width: 100%;
   height: 40px;
   background-color: var(--dark-orange);
@@ -52,4 +55,28 @@ input {
 .submit-button-container button:hover {
   background-color: rgba(189, 101, 43, 0.842);
   color: black;
+}
+
+/* ====MEDIA QUERY STARTS HERE==== */
+@media (max-width: 1324px) {
+}
+
+@media (max-width: 1024px) {
+  .sign-up-container {
+    height: 100%;
+    padding-top: 40px;
+  }
+  .form-container {
+    width: 60%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 834px) {
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    width: 75%;
+  }
 }

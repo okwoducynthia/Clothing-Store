@@ -78,7 +78,9 @@ export default function Signup() {
         <label htmlFor="">First Name</label>
         <input type="text"
          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)} />
+         onChange={(e) => setFirstName(e.target.value)} 
+         style={{marginLeft:"3px", }}
+          />
       </div>
 
       {/* Last Name */}
@@ -86,7 +88,9 @@ export default function Signup() {
         <label htmlFor="">Last Name</label>
         <input type="text" 
         value={lastName} 
-        onChange={(e) => setLastName(e.target.value)} />
+        onChange={(e) => setLastName(e.target.value)} 
+        style={{marginLeft:"3px"}}
+        />
       </div>
 
         {/* /* Email */}
@@ -94,7 +98,9 @@ export default function Signup() {
         <label htmlFor="">Email</label>
         <input type="text" 
         value={email} 
-        onChange={(e) => setEmail(e.target.value)} />
+        onChange={(e) => setEmail(e.target.value)} 
+        style={{marginLeft:"3px"}} 
+        />
       </div>
 
       {/* Phone Number */}
@@ -103,7 +109,9 @@ export default function Signup() {
         <input type="text" 
         value={phoneNumber} 
         placeholder="+234-246-24527"
-        onChange={(e) => setPhoneNumber(e.target.value)} />
+        onChange={(e) => setPhoneNumber(e.target.value)} 
+        style={{marginLeft:"3px"}}
+        />
       </div>
 
       {/* Password */}
@@ -116,7 +124,9 @@ export default function Signup() {
         <input 
         type={showPassword ? "text" : "password"} 
         value={password} 
-        onChange={(e) => setPassword(e.target.value)} />
+        onChange={(e) => setPassword(e.target.value)} 
+        style={{marginLeft:"3px"}}
+        />
         <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
