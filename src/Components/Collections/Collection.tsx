@@ -6,7 +6,6 @@ import "./Collection.css"
 
 
 const ProductCollections= () => {
-  const [showFilter, setShowFilter] = useState(true);
   const [viewResult, setViewResult] = useState([]);
   console.log(viewResult);
   useEffect(() => {
@@ -31,27 +30,6 @@ const ProductCollections= () => {
   }
   return (
     <div>
-      {/* FILTER OPTIONS */}
-      <div className="min-w-60" >
-        
-        <div className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter ? '' : 'hidden'}`}>
-
-          <p className="my-2 text-xl flex font-semibold items-center  cursor-pointer gap-2 filter-paragraph">FILTERS</p>
-
-          <div className="flex flex-col gap-2 text-sm font-light text-gray-700"></div>
-          <p className="flex gap-2">
-            <input type="checkbox" className="w-3" value={"Men"}/> Men
-          </p>
-          <p className="flex gap-2">
-            <input type="checkbox" className="w-3" value={"Women"}/> Women
-          </p>
-          <p className="flex gap-2">
-            <input type="checkbox" className="w-3" value={"Kids"}/> Kids
-          </p>
-        </div>
-      </div>
-      
-
       <div style={{
         display:"flex", 
         justifyContent:"center", 
@@ -59,7 +37,7 @@ const ProductCollections= () => {
         flexWrap:"wrap",
         gap: "20px",
         height:"100%",
-        paddingBottom:"40px"
+        padding:"40px 0"
         }}>
           
         {CollectionProduct.map((items: any) => (

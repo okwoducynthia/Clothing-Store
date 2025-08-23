@@ -71,6 +71,7 @@ export default function Login() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              style={{marginLeft:"2px", width:"100%"}}
             />
           </div>
 
@@ -87,6 +88,7 @@ export default function Login() {
               type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              style={{marginLeft:"2px", width:"100%"}}
             />
             <button
               type="button"

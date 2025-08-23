@@ -29,7 +29,7 @@ const ProductDetails = () => {
   return (
     <div>
       <h1>Product Details Screen</h1>
-      <h4>{viewResult?.category}</h4>
+      <h4>{viewResult?.products?.category}</h4>
       <h5>{viewResult?.rating}</h5>
       <h5>{viewResult?.price}</h5>
       {viewResult?.products?.images?.map((items: any) => (

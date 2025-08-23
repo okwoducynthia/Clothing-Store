@@ -17,8 +17,8 @@ function App() {
   const location = useLocation();
 
   // List of routes where Navbar should show
-  const showNavbarRoutes = ["/home", "/collection", "/about", "/contact"]
-  const showFooterRoutes = ["/home", "/collection", "/about", "/contact"]
+  const showNavbarRoutes = ["/home", "/collection", "/about", "/contact", `/productDetails/${location.pathname.split('/').pop()}`]
+  const showFooterRoutes = ["/home", "/collection", "/about", "/contact", `/productDetails/${location.pathname.split('/').pop()}`]
 
   // Check if the current location matches any of those
   const showNavbar = showNavbarRoutes.includes(location.pathname);
