@@ -1,29 +1,31 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { CollectionProduct } from "../../Data/Collections/CollectionProducts";
 import "./Collection.css"
+import { toast } from "react-toastify";
 
 
 const ProductCollections= () => {
-  const [viewResult, setViewResult] = useState([]);
-  console.log(viewResult);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const { data } = await axios.get(
-          ""
-        );
-        console.log(data);
+  const [list, setList] = useState<any>([]);
 
-        setViewResult(data);
-      } catch (error) {
-        console.error("Result not Found:", error);
+  const fetchList = async () => {
+    try {
+      const response = await axios.get("http://localhost:7000/api/products/list")
+      if(response.data.success){
+        setList(response.data.products);
       }
-    };
+      else{
+        toast.error(response.data.message)
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong")
+    }
+  }
 
-    fetchPosts();
-  }, []);
+  useEffect(() => {
+    fetchList();
+  }, [])
   const navigate= useNavigate()
   const productDetails = (id:any) => {
     navigate(`/productDetails/${id}`)
@@ -40,22 +42,11 @@ const ProductCollections= () => {
         padding:"40px 0"
         }}>
           
-        {CollectionProduct.map((items: any) => (
+        {list.map((items: any) => (
           <div key={items.category} className="collection-item">
-            <img  className="hover:scale-110 transition ease-in-out" src={items.image} alt={items.category} />
+            <img className="hover:scale-110 transition ease-in-out" src={items.images[0]} alt="" />
+            <p>{items.productName}</p>
             <p>{items.category}</p>
-            <i>
-                {Array.from({ length: items.rating }).map((_, i) => (
-                  <span key={i} id="star">
-                    &#9733;
-                  </span>
-                ))}
-                {Array.from({ length: 5 - items.rating }).map((_, i) => (
-                  <span key={i} id ="empty-star">
-                    &#9733;
-                  </span>
-                ))}
-              </i>
             <h4>{items.price}</h4>
             <button className="popular-btn"  onClick={() => productDetails(items._id)}>View</button>
           </div>

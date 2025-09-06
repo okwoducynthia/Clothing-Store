@@ -1,44 +1,87 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   const {id} = useParams()
   console.log(id);
   
-   const [viewResult, setViewResult] = useState<any>({});
-   console.log(viewResult);
+   const [list, setList] = useState<any>({});
+   const[size, setSize] = useState<any>("");
 
-   useEffect(() => {
-       const fetchPosts = async () => {
-         try {
-           const { data } = await axios.get(
-             `/${id}`
-           );
-           console.log(data);
-   
-           setViewResult(data);
-         } catch (error) {
-           console.error("Result not Found:", error);
-         }
-       };
-   
-       fetchPosts();
-     }, []);
+
+
+  const fetchList = async () => {
+    try {
+      const response = await axios.get(`http://localhost:7000/api/products/single/${id}`)
+      if(response.data.success){
+        setList(response.data.product);
+      }
+      else{
+        toast.error(response.data.message)
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong")
+    }
+  }
+
+  useEffect(() => {
+    fetchList();
+  }, [])
    
   return (
-    <div>
-      <h1>Product Details Screen</h1>
-      <h4>{viewResult?.products?.category}</h4>
-      <h5>{viewResult?.rating}</h5>
-      <h5>{viewResult?.price}</h5>
-      {viewResult?.products?.images?.map((items: any) => (
-      <>
-        <img src={items.image} alt="" />
-      </>
-    ))}
-      {/* The reason for the question mark is because the details maybe empty, 
-      the question makes sure data does not breakdown */}
+    <div style={{
+      marginBottom:"20px"
+    }} className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100"> 
+    {/* ====Product Data====   */}
+      <div className='flex gap-12 sm:gap-12 flex-col sm:flex-row'>
+
+        {/* ====Product Images==== */}
+        <div className='flex-1 flex flex-col-reverse gap-3 sm:flex-row'>
+          <div className='flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full'>
+            {list.images &&
+              list.images.map((item:any, index:any) => (
+                <img src={item} key={index} alt="" className='w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer'/>
+              ))
+            }
+            {
+              !list.images && <p>No images available</p>
+            }
+          </div>
+
+          <div className='w-full sm:w-[80%]'>
+            <img className="w-full h-auto" src={list?.images?.[0]} alt="" />
+          </div>
+
+        </div>
+
+        {/* ====Products Info===== */}
+        <div className='flex-1'>
+            <h1 className='font-medium text-2x1 mt-2'>{list.productName}</h1>
+            <p className='mt-5 text-4x1 font-medium' style={{marginTop:"10px", marginBottom:"20px"}}> ₦ {list.price}</p>
+            <p className='mt-5 text-gray-500 md:w-4/5'>{list.description}</p>
+            <div className='flex flex-col gap-4 my-8'>
+              <p>Select Size</p>
+              <div className='flex gap-2'>
+                {
+                  list.sizes && list.sizes.map((item:any, index:any) => (
+                    <button onClick={()=> setSize(item)} style={{padding:"10px"}} className={`bg-gray-200 ${size === item && "bg-orange-500 text-white"}`} key={index}>{item}</button>
+                  ))
+                }
+              </div>
+              <button style={{padding:"10px", width:"25%", marginTop:"10px"}} className='bg-black text-white text-sm active:bg-gray-700'>ADD TO CART</button>
+              <hr style={{margin:"10px"}} className='mt-8 sm:w-4/5 text-gray-300'/>
+              <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
+                <p>100% Original Product</p>
+                <p>Easy return and exchange within 7 days</p>
+              </div>
+            </div>
+        </div>
+      </div>  
+      
+      
     </div>
   )
 }

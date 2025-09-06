@@ -29,10 +29,10 @@ a {
   text-decoration: none;
 }
 
-/* a:active {
-  background-color: var(--navy-blue);
-  color: var(--white-color);
-} */
+.active {
+  background-color: var(--orange-color);
+  color: white;
+}
 
 li {
   list-style: none;
@@ -40,4 +40,9 @@ li {
 
 p{
   font-family: var(--open-san);
+}
+
+/* ===To hide scroll bar=== */
+::-webkit-scrollbar {
+  display: none;
 }

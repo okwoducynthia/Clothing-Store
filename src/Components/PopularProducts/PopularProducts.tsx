@@ -1,33 +1,37 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
-import { PopularProduct } from "../../Data/PopularProducts.tsx/PopularProducts";
+import { useNavigate } from "react-router-dom";
 import "./PopularProducts.css"
-
+import { toast } from "react-toastify";
 
 const PopularProducts= () => {
-  const [viewResult, setViewResult] = useState([]);
-  console.log(viewResult);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const { data } = await axios.get(
-          ""
-        );
-        console.log(data);
 
-        setViewResult(data);
-      } catch (error) {
-        console.error("Result not Found:", error);
+  const [list, setList] = useState<any[]>([]);
+
+  const fetchList = async () => {
+    try {
+      const response = await axios.get("http://localhost:7000/api/products/list")
+      if(response.data.success){
+        const firstFour = response.data.products.slice(0, 4);
+        setList(firstFour);
       }
-    };
+      else{
+        toast.error(response.data.message)
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong")
+    }
+  }
 
-    fetchPosts();
-  }, []);
-  // const navigate= useNavigate()
-  // const productDetails = (id:any) => {
-  //   navigate(`/productDetails/${id}`)
-  // }
+  useEffect(() => {
+    fetchList();
+  }, [])
+
+  const navigate= useNavigate()
+  const productDetails = (id:any) => {
+    navigate(`/productDetails/${id}`)
+  }
   return (
     <div>
       <div className="products-heading">
@@ -43,24 +47,12 @@ const PopularProducts= () => {
         paddingBottom:"40px"
         }}>
           
-        {PopularProduct.map((items: any) => (
+        {list.map((items: any) => (
           <div key={items.category} className="product-item">
-            <img className="hover:scale-110 transition ease-in-out" src={items.image} alt={items.category} />
+            <img className="hover:scale-110 transition ease-in-out" src={items.images[0]} alt="" />
             <p>{items.category}</p>
-            <i>
-                {Array.from({ length: items.rating }).map((_, i) => (
-                  <span key={i} id="star">
-                    &#9733;
-                  </span>
-                ))}
-                {Array.from({ length: 5 - items.rating }).map((_, i) => (
-                  <span key={i} id ="empty-star">
-                    &#9733;
-                  </span>
-                ))}
-              </i>
             <h4>{items.price}</h4>
-            <button className="popular-btn">View</button>
+            <button onClick={() => productDetails(items._id)} className="popular-btn">View</button>
           </div>
         ))}
       </div>      
