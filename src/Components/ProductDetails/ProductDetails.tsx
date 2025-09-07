@@ -61,9 +61,9 @@ const ProductDetails = () => {
         <div className='flex-1'>
             <h1 className='font-medium text-2x1 mt-2'>{list.productName}</h1>
             <p className='mt-5 text-4x1 font-medium' style={{marginTop:"10px", marginBottom:"20px"}}> ₦ {list.price}</p>
-            <p className='mt-5 text-gray-500 md:w-4/5'>{list.description}</p>
+            <p className='mt-5 text-gray-500 md:w-4/5' style={{marginBottom:"20px"}}>{list.description}</p>
             <div className='flex flex-col gap-4 my-8'>
-              <p>Select Size</p>
+              <b>Select Size:</b>
               <div className='flex gap-2'>
                 {
                   list.sizes && list.sizes.map((item:any, index:any) => (
