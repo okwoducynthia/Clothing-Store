@@ -28,7 +28,7 @@ const ProductDetails = () => {
   id: list.id,
   images: list.images,
   name: list.productName,
-  size: list.sizes,
+  size: size,
   quantity: 1,
   price: list.price
   };
