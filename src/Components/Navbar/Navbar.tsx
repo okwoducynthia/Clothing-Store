@@ -3,8 +3,18 @@ import { MdClose } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { ShopContext } from "../ShopContext/ShopContext";
 
 const Navbar = () => {
+
+  const { cart } = useContext(ShopContext)!;
+  // TO INCREASE THE QUANTITY ON THE CART BAG
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  // TO DISPLAY THE PRICE AT THE NAVBAR OF SELECTED ITEMS FOR PURCHASE
+  const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
 
   const [sidebar, setSidebar] = useState(false);
   const toggleSidebar = () => {
@@ -40,11 +50,11 @@ const Navbar = () => {
                 <BsSearch />
               </span>
             </div>
-            <ul className="mt-5 w-full flex flex-col gap-y-3 p-3 bg-white h-full" style={{color:"rgb(255, 103, 1)"}}>
+            <ul className="mt-5 w-full flex flex-col gap-y-3 p-3 bg-white h-full" style={{color:"rgb(255, 103, 1)", fontSize:"22px"}}>
               <NavLink to={"/home"} onClick={closeSidebar}><li className="p-1">Home</li></NavLink>
               <NavLink to={"/collection"} onClick={closeSidebar}><li className="p-1">Collection</li></NavLink>
               <NavLink to={"/about"} onClick={closeSidebar}><li className="p-1">About</li></NavLink>
-              <li className="p-1">Cart</li>
+              <NavLink to={"/cart"}><li className="p-1">Cart</li></NavLink>
               <li className="p-1">Checkout</li>
               <li className="p-1">My account</li>
               <NavLink to={"/contact"} onClick={closeSidebar}><li className="p-1">Contact</li></NavLink>
@@ -75,12 +85,17 @@ const Navbar = () => {
         </div>
 
         <div className="header-cart">
-          <p>£0.00</p>
-          <i className="fa-solid fa-bag-shopping">
-            <span>0</span>
+          <p>₦{totalPrice.toFixed(2)}</p>
+
+          <NavLink to={"/cart"}>
+          <i className="fa-solid fa-bag-shopping" style={{marginBottom:"23px"}}>
+            <span>{totalItems}</span>
           </i>
+          </NavLink>
+
           <i className="fa-solid fa-user"></i>
         </div>
+       
 
         <span className="header-nav-icon">
           <i className="fa-solid fa-bars" onClick={toggleSidebar}></i>

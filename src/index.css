@@ -31,7 +31,8 @@ a {
 
 .active {
   background-color: var(--orange-color);
-  color: white;
+  padding: 8px;
+  border-radius: 5px;
 }
 
 li {

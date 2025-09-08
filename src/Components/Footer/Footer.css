@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #ddd;
+  background-color: var(--sky-blue);
   height: 50vh;
 }
 .footer-container div {

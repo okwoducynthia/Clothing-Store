@@ -44,7 +44,7 @@ const ProductCollections= () => {
           
         {list.map((items: any) => (
           <div key={items.category} className="collection-item">
-            <img className="hover:scale-110 transition ease-in-out" src={items.images[0]} alt="" />
+            <img onClick={() => productDetails(items._id)} className="hover:scale-110 transition ease-in-out cursor-pointer" src={items.images[0]} alt="" />
             <p>{items.productName}</p>
             <p>{items.category}</p>
             <h4>{items.price}</h4>

@@ -2,6 +2,9 @@ import axios from 'axios';
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {useContext } from "react";
+import { ShopContext } from "../ShopContext/ShopContext";
 
 const ProductDetails = () => {
   const {id} = useParams()
@@ -9,8 +12,29 @@ const ProductDetails = () => {
   
    const [list, setList] = useState<any>({});
    const[size, setSize] = useState<any>("");
+  const { addToCart } = useContext(ShopContext)!;
+  // const [selectedSize, setSelectedSize] = useState<string>("");
 
+  const handleAddToCart = () => {
+  if (!size) {
+  toast.error("Please select a size before adding to cart!", {
+  position: "top-right",
+  autoClose: 3000,
+});
+  return;
+  }
 
+  const product = {
+  id: list.id,
+  images: list.images,
+  name: list.productName,
+  size: list.sizes,
+  quantity: 1,
+  price: list.price
+  };
+
+  addToCart(product);
+  };
 
   const fetchList = async () => {
     try {
@@ -71,7 +95,7 @@ const ProductDetails = () => {
                   ))
                 }
               </div>
-              <button style={{padding:"10px", width:"25%", marginTop:"10px"}} className='bg-black text-white text-sm active:bg-gray-700'>ADD TO CART</button>
+              <button onClick={handleAddToCart} style={{padding:"10px", width:"25%", marginTop:"10px"}} className='bg-black text-white text-sm active:bg-gray-700'>ADD TO CART</button>
               <hr style={{margin:"10px"}} className='mt-8 sm:w-4/5 text-gray-300'/>
               <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
                 <p>100% Original Product</p>
