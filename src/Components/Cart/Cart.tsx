@@ -50,6 +50,7 @@ style={{margin:"auto"}}
 <button
 onClick={() => decreaseQuantity(item.id, item.size)}
 className="px-2 py-1 bg-gray-300"
+style={{padding:"7px"}}
 >
 -
 </button>
@@ -57,6 +58,7 @@ className="px-2 py-1 bg-gray-300"
 <button
 onClick={() => increaseQuantity(item.id, item.size)}
 className="px-2 py-1 bg-gray-300"
+style={{padding:"7px"}}
 >
 +
 </button>
@@ -83,6 +85,24 @@ Grand Total: ₦{totalPrice.toFixed(2)}
 </h3>
 </div>
 )}
+
+<div style={{display:"flex",
+  justifyContent:"center",
+  alignItems:"center",
+  textAlign:"center",
+  }}>
+  <button
+style={{
+  backgroundColor:"black", 
+  color:"white",
+  padding:"8px",
+  borderRadius:"5px",
+  fontWeight:"bold",
+  cursor:"pointer"
+  }}
+>PROCEED TO CHECKOUT</button>
+</div>
+
 </div>
 );
 };
