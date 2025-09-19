@@ -13,6 +13,7 @@ import ProductDetails from './Components/ProductDetails/ProductDetails'
 import { ShopProvider } from './Components/ShopContext/ShopContext'
 import Cart from './Components/Cart/Cart'
 import { ToastContainer } from 'react-toastify'
+import PlaceOrder from './Components/PlaceOrder/PlaceOrder'
 
 
 
@@ -21,7 +22,7 @@ function App() {
 
   // List of routes where Navbar should show
   const showNavbarRoutes = ["/home", "/collection", "/about", "/contact", "/cart",`/productDetails/${location.pathname.split('/').pop()}`]
-  const showFooterRoutes = ["/home", "/collection", "/about", "/contact", "/cart",`/productDetails/${location.pathname.split('/').pop()}`]
+  const showFooterRoutes = ["/home", "/collection", "/about", "/contact", "/payment", "/cart",`/productDetails/${location.pathname.split('/').pop()}`]
 
   // Check if the current location matches any of those
   const showNavbar = showNavbarRoutes.includes(location.pathname);
@@ -43,6 +44,7 @@ function App() {
         <Route path='/collection' element={<ProductCollections/>}/>
         <Route path='/productDetails/:id' element={<ProductDetails/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/payment' element={<PlaceOrder/>}/>
       </Routes>
       <ToastContainer/>
      {showFooter && <Footer/>}

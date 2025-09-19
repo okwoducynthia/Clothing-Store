@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { ShopContext } from "../ShopContext/ShopContext";
 import { AiOutlineDelete } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
 const { cart, increaseQuantity, decreaseQuantity, removeFromCart } =
@@ -86,6 +87,7 @@ Grand Total: ₦{totalPrice.toFixed(2)}
 </div>
 )}
 
+<Link to={"/payment"}>
 <div style={{display:"flex",
   justifyContent:"center",
   alignItems:"center",
@@ -102,7 +104,7 @@ style={{
   }}
 >PROCEED TO CHECKOUT</button>
 </div>
-
+</Link>
 </div>
 );
 };

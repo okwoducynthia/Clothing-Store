@@ -35,7 +35,7 @@ export default function Login() {
     };
     try {
       const response = await axios.post(
-        "https://bankend-project.onrender.com/User/login",
+        "http://localhost:7000/api/user/login",
         data,
         {
           headers,
@@ -95,7 +95,7 @@ export default function Login() {
               onClick={() => setShowPassword(!showPassword)}
               style={{
                 position: "absolute",
-                top:"35px",
+                top:"45px",
                 right:"10px",
                 color: "gray"
               }}
@@ -128,7 +128,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className={`block w-full rounded-md px-4 py-2.5 text-center text-sm font-semibold text-white shadow ${
+            className={`block w-full rounded-md px-4 py-2.5 text-center text-sm font-semibold cursor-pointer text-white shadow ${
               loading
                 ? "bg-indigo-300 cursor-not-allowed"
                 : "bg-indigo-600 hover:bg-indigo-500"
