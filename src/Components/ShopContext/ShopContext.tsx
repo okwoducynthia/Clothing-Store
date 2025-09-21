@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 
-type CartItem = {
+// Define the shape of a single cart item
+export type CartItem = {
 id: number;
 name: string;
 size: string;
@@ -9,77 +10,101 @@ price: number;
 images: string[];
 };
 
+// Define the shape of the context's state and functions
 type ShopContextType = {
 cart: CartItem[];
 addToCart: (product: CartItem) => void;
-removeFromCart: (id: number, size: string) => void;
-increaseQuantity: (id: number, size: string) => void;
-decreaseQuantity: (id: number, size: string) => void;
+removeFromCart: (id: number, price: number) => void;
+increaseQuantity: (id: number, price: number) => void;
+decreaseQuantity: (id: number, price: number) => void;
 };
 
-export const ShopContext = createContext<ShopContextType | undefined>(undefined);
+// Create the context
+export const ShopContext = createContext<ShopContextType | undefined>(
+undefined
+);
 
-export const ShopProvider = ({ children }: { children: React.ReactNode }) => {
-// ✅ Load cart from localStorage on init
+// Define the provider component
+export const ShopProvider = ({
+children,
+}: {
+children: React.ReactNode;
+}) => {
+// Load cart from local storage on initial state
 const [cart, setCart] = useState<CartItem[]>(() => {
 const savedCart = localStorage.getItem("cart");
 return savedCart ? JSON.parse(savedCart) : [];
 });
 
-// ✅ Save cart to localStorage whenever it changes
+// Save cart to local storage whenever it changes
 useEffect(() => {
 localStorage.setItem("cart", JSON.stringify(cart));
 }, [cart]);
 
+// Function to add a product to the cart
 const addToCart = (product: CartItem) => {
+// Find if an item with the SAME ID AND SAME PRICE already exists
 const existing = cart.find(
-(item) => item.id === product.id && item.size === product.size
+(item) => item.id === product.id && item.price === product.price
 );
 
 if (existing) {
+// If the item exists, create a new array with the quantity increased
 setCart(
 cart.map((item) =>
-item.id === product.id && item.size === product.size
+item.id === product.id && item.price === product.price
 ? { ...item, quantity: item.quantity + 1 }
 : item
 )
 );
 } else {
+// If the item does not exist, add it to the cart with a quantity of 1
 setCart([...cart, { ...product, quantity: 1 }]);
 }
 };
 
-const removeFromCart = (id: number, size: string) => {
-setCart(cart.filter((item) => !(item.id === id && item.size === size)));
+// Function to remove a product from the cart
+const removeFromCart = (id: number, price: number) => {
+// Filter out the item that matches both the id and the price
+setCart(
+cart.filter((item) => !(item.id === id && item.price === price))
+);
 };
 
-const increaseQuantity = (id: number, size: string) => {
+// Function to increase the quantity of a specific item
+const increaseQuantity = (id: number, price: number) => {
 setCart(
 cart.map((item) =>
-item.id === id && item.size === size
+item.id === id && item.price === price
 ? { ...item, quantity: item.quantity + 1 }
 : item
 )
 );
 };
 
-const decreaseQuantity = (id: number, size: string) => {
-setCart(
-cart
-.map((item) =>
-item.id === id && item.size === size
+// Function to decrease the quantity of a specific item
+const decreaseQuantity = (id: number, price: number) => {
+// Create a new array, decreasing the quantity of the matched item
+const updatedCart = cart.map((item) =>
+item.id === id && item.price === price
 ? { ...item, quantity: item.quantity - 1 }
 : item
-)
-.filter((item) => item.quantity > 0)
 );
+
+// Filter out any items whose quantity is now 0 or less
+setCart(updatedCart.filter((item) => item.quantity > 0));
+};
+
+// Define the value to be passed to components
+const contextValue = {
+cart,
+addToCart,
+removeFromCart,
+increaseQuantity,
+decreaseQuantity,
 };
 
 return (
-<ShopContext.Provider
-value={{ cart, addToCart, removeFromCart, increaseQuantity, decreaseQuantity }}
->
-{children}
-</ShopContext.Provider>
+<ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
 );
 };

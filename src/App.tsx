@@ -14,6 +14,8 @@ import { ShopProvider } from './Components/ShopContext/ShopContext'
 import Cart from './Components/Cart/Cart'
 import { ToastContainer } from 'react-toastify'
 import PlaceOrder from './Components/PlaceOrder/PlaceOrder'
+import Payment from './Components/Payment/Payment'
+import PaymentConfirm from './Components/Payment-Confirm/PaymentConfirm'
 
 
 
@@ -21,8 +23,8 @@ function App() {
   const location = useLocation();
 
   // List of routes where Navbar should show
-  const showNavbarRoutes = ["/home", "/collection", "/about", "/contact", "/cart",`/productDetails/${location.pathname.split('/').pop()}`]
-  const showFooterRoutes = ["/home", "/collection", "/about", "/contact", "/payment", "/cart",`/productDetails/${location.pathname.split('/').pop()}`]
+  const showNavbarRoutes = ["/home", "/collection", "/about", "/contact", "/cart", "/payment-confirmation",`/productDetails/${location.pathname.split('/').pop()}`]
+  const showFooterRoutes = ["/home", "/collection", "/about", "/contact", "/cart", "/payment-confirmation",`/productDetails/${location.pathname.split('/').pop()}`]
 
   // Check if the current location matches any of those
   const showNavbar = showNavbarRoutes.includes(location.pathname);
@@ -44,7 +46,9 @@ function App() {
         <Route path='/collection' element={<ProductCollections/>}/>
         <Route path='/productDetails/:id' element={<ProductDetails/>}/>
         <Route path='/cart' element={<Cart/>}/>
-        <Route path='/payment' element={<PlaceOrder/>}/>
+        <Route path='/delivery-info' element={<PlaceOrder/>}/>
+        <Route path='/payment' element={<Payment/>}/>
+        <Route path='/payment-confirmation' element={<PaymentConfirm/>}/>
       </Routes>
       <ToastContainer/>
      {showFooter && <Footer/>}

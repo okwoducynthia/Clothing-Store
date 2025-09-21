@@ -3,6 +3,7 @@ import { ShopContext } from "../ShopContext/ShopContext";
 import { AiOutlineDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
+
 const Cart = () => {
 const { cart, increaseQuantity, decreaseQuantity, removeFromCart } =
 useContext(ShopContext)!;
@@ -49,7 +50,7 @@ style={{margin:"auto"}}
 <td className="border p-2">
 <div className="flex items-center justify-center gap-2">
 <button
-onClick={() => decreaseQuantity(item.id, item.size)}
+onClick={() => decreaseQuantity(item.id, item.price)}
 className="px-2 py-1 bg-gray-300"
 style={{padding:"7px"}}
 >
@@ -57,7 +58,7 @@ style={{padding:"7px"}}
 </button>
 <span>{item.quantity}</span>
 <button
-onClick={() => increaseQuantity(item.id, item.size)}
+onClick={() => increaseQuantity(item.id, item.price)}
 className="px-2 py-1 bg-gray-300"
 style={{padding:"7px"}}
 >
@@ -69,7 +70,7 @@ style={{padding:"7px"}}
 ₦ {(item.price * item.quantity).toFixed(2)}
 </td>
 <td className="border p-2">
-<AiOutlineDelete onClick={() => removeFromCart(item.id, item.size)} 
+<AiOutlineDelete onClick={() => removeFromCart(item.id, item.price)} 
   style={{cursor:"pointer", fontSize:"14px", color:"red", margin:"auto"}}
   />
 </td>
@@ -87,7 +88,7 @@ Grand Total: ₦{totalPrice.toFixed(2)}
 </div>
 )}
 
-<Link to={"/payment"}>
+<Link to={`/delivery-info`}>
 <div style={{display:"flex",
   justifyContent:"center",
   alignItems:"center",

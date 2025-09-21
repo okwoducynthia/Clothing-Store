@@ -1,19 +1,90 @@
-/* ====MEDIA QUERY STARTS HERE==== */
-@media (max-width: 1324px) {
+.update-sub-container {
+  background-color: rgba(16, 16, 65, 0.116);
+  height: 100%;
+   background-color: var(--white);
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 20px rgb(0, 0, 0, 0.3);
+  border-radius: 6px;
+  margin: 70px auto;
+  padding: 20px;
+}
+.update-sub-container form {
+  width: 90%;
+}
+.title-update, .assigned-update, .description-update, .update-start-date, .update-end-date {
+  margin-bottom: 10px;
+}
+.title-update input, .assigned-update input{
+  width: 95%;
+  height: 50px;
+  font-size: 16px;
+  padding: 10px;
+  margin: auto;
+}
+.description-update input{
+  width: 95%;
+  height: 50px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding: 10px;
+  margin: auto;
+}
+.update-start-date label, .update-end-date label, label {
+  font-family: var(--roboto-font);
+  color: var(--navy-blue);
+}
+.update-start-date input, .update-end-date input {
+  margin-bottom: 16px;
+  width: 95%;
+  height: 50px;
+  font-size: 16px;
+  padding: 10px;
+  margin: auto;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.buttons button {
+  padding: 15px 25px;
+  background-color: var(--orange-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.buttons button:hover {
+  background-color: var(--dark-orange);
 }
 
-@media (max-width: 1100px) {
-  .payment-gateway{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-  .payment-image {
+
+
+/* ===MEDIA QUERY STARTS HERE=== */
+@media (max-width: 834px) {
+  .update-sub-container {
     width: 90%;
   }
 }
 
 @media (max-width: 480px) {
+  .update-sub-container {
+    margin: 100px auto;
+
+  }
+  .update-sub-container form h1 {
+    font-size: 25px;
+  }
+  .buttons button {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+
 }

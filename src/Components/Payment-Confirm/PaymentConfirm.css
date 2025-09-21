@@ -1,0 +1,27 @@
+.payment-confirmation-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 500px;
+  height: 250px;
+  margin-top: 90px;
+  margin-bottom: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+.payment-confirmation-container i {
+  margin: auto;
+  color: yellow;
+  font-size: 50px;
+}
+.payment-confirmation-container p {
+  font-size: 20px;
+  font-family: var(--roboto-font);
+  text-align: center;
+}
+.payment-confirmation-container p span {
+  font-weight: bold;
+}

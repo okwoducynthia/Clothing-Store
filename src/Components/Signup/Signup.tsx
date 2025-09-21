@@ -15,6 +15,7 @@ export default function Signup() {
   const [email, setEmail] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
 
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -35,6 +36,7 @@ export default function Signup() {
       email: email,
       phoneNumber: phoneNumber,
       password: password,
+      address: address,
     };
     const headers: any = {
       "Custom-Header": "xxxx-xxxx-xxxx-xxxx",
@@ -54,6 +56,8 @@ export default function Signup() {
       setLastName("");
       setEmail("");
       setPassword("");
+      setPhoneNumber("");
+      setAddress("");
 
       localStorage.setItem("userId", response.data._id);
         navigate("/home");
@@ -99,6 +103,16 @@ export default function Signup() {
         <input type="text" 
         value={email} 
         onChange={(e) => setEmail(e.target.value)} 
+        style={{marginLeft:"3px"}} 
+        />
+      </div>
+
+      {/* Address== */}
+      <div className="form-group">
+        <label htmlFor="">Address</label>
+        <input type="text" 
+        value={address} 
+        onChange={(e) => setAddress(e.target.value)} 
         style={{marginLeft:"3px"}} 
         />
       </div>
