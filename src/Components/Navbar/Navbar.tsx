@@ -39,7 +39,7 @@ const Navbar = () => {
             <button onClick={toggleSidebar} className="self-end me-5 text-2xl h-[7vh]">
               <MdClose />
             </button>
-            <ul className="mt-5 w-full flex flex-col gap-y-3 p-3 bg-white h-full" style={{color:"rgb(255, 103, 1)", fontSize:"22px"}}>
+            <ul className="mt-5 w-full flex flex-col gap-y-3 p-3 bg-white h-full" style={{color:"rgb(255, 103, 1)", fontSize:"18px"}}>
               <NavLink to={"/home"} onClick={closeSidebar}><li className="p-1">Home</li></NavLink>
               <NavLink to={"/collection"} onClick={closeSidebar}><li className="p-1">Collection</li></NavLink>
               <NavLink to={"/about"} onClick={closeSidebar}><li className="p-1">About</li></NavLink>
