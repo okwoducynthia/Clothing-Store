@@ -11,10 +11,6 @@ const Auth = () => {
         <Link to={"/login"}>
         <button className="login-btn">Login</button>
         </Link>
-
-        <Link to={"/home"}>
-        <button className="login-btn">Home Page</button>
-        </Link>
     </div>
   )
 }
