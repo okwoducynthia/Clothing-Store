@@ -1,5 +1,6 @@
 import React from "react";
 import "./Tradeticker.css";
+import { Link } from "react-router-dom";
 
 const TradingTicker: React.FC = () => {
   return (
@@ -8,7 +9,8 @@ const TradingTicker: React.FC = () => {
       style={{
         fontWeight:"bold"
       }}>
-        20% off on your first order! All items are sold at a discount and shipped for free to your Location <span>SHOP NOW</span>
+        20% off on your first order! All items are sold at a discount and shipped for free to your Location 
+        <Link to={"/collection"}><span>SHOP NOW</span></Link>
       </p>
     </div>
   );
