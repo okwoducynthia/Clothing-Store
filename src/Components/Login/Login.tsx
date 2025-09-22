@@ -35,7 +35,7 @@ export default function Login() {
     };
     try {
       const response = await axios.post(
-        "http://localhost:7000/api/user/login",
+        "https://backend-clothing-store-q0jh.onrender.com/api/user/login",
         data,
         {
           headers,

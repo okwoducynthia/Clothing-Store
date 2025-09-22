@@ -38,7 +38,7 @@ const navigate = useNavigate();
     };
     try {
       const response = await axios.post(
-        "http://localhost:7000/api/delivery",
+        "https://backend-clothing-store-q0jh.onrender.com/api/delivery",
         data,
         {
           headers,
