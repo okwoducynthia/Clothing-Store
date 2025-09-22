@@ -53,6 +53,7 @@
   }
   .about-image img {
     margin: auto;
+    width: 93%
   }
   .about-heading {
     height: 50vh;

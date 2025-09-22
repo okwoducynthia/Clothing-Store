@@ -1,6 +1,5 @@
 import "./Navbar.css"
 import { MdClose } from "react-icons/md";
-import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
@@ -40,23 +39,12 @@ const Navbar = () => {
             <button onClick={toggleSidebar} className="self-end me-5 text-2xl h-[7vh]">
               <MdClose />
             </button>
-            <div className="mt-5 w-full relative bg-white">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="w-full font-paragraph-font border-1 border-solid border-gray-300 rounded-sm p-2 text-gray-400 text-sm outline-0 font-extralight h-[8vh]"
-              />
-              <span className="absolute right-3 top-3 text-gray-400">
-                <BsSearch />
-              </span>
-            </div>
             <ul className="mt-5 w-full flex flex-col gap-y-3 p-3 bg-white h-full" style={{color:"rgb(255, 103, 1)", fontSize:"22px"}}>
               <NavLink to={"/home"} onClick={closeSidebar}><li className="p-1">Home</li></NavLink>
               <NavLink to={"/collection"} onClick={closeSidebar}><li className="p-1">Collection</li></NavLink>
               <NavLink to={"/about"} onClick={closeSidebar}><li className="p-1">About</li></NavLink>
               <NavLink to={"/cart"}><li className="p-1">Cart</li></NavLink>
-              <li className="p-1">Checkout</li>
-              <li className="p-1">My account</li>
+              <NavLink to={"/payment"}><li className="p-1">Checkout</li></NavLink>
               <NavLink to={"/contact"} onClick={closeSidebar}><li className="p-1">Contact</li></NavLink>
             </ul>
           </div>
