@@ -44,7 +44,6 @@ const Navbar = () => {
               <NavLink to={"/collection"} onClick={closeSidebar}><li className="p-1">Collection</li></NavLink>
               <NavLink to={"/about"} onClick={closeSidebar}><li className="p-1">About</li></NavLink>
               <NavLink to={"/cart"}><li className="p-1">Cart</li></NavLink>
-              <NavLink to={"/payment"}><li className="p-1">Checkout</li></NavLink>
               <NavLink to={"/contact"} onClick={closeSidebar}><li className="p-1">Contact</li></NavLink>
             </ul>
           </div>
