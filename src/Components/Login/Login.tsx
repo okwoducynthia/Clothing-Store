@@ -68,6 +68,7 @@ export default function Login() {
               Email
             </label>
             <input
+              placeholder="Email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -85,6 +86,7 @@ export default function Login() {
               Password
             </label>
             <input
+            placeholder="Password"
               type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}

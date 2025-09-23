@@ -81,6 +81,7 @@ export default function Signup() {
       <div className="form-group">
         <label htmlFor="">First Name</label>
         <input type="text"
+        placeholder="First-Name"
          value={firstName}
          onChange={(e) => setFirstName(e.target.value)} 
          style={{marginLeft:"3px", }}
@@ -91,6 +92,7 @@ export default function Signup() {
       <div className="form-group">
         <label htmlFor="">Last Name</label>
         <input type="text" 
+        placeholder="Last-Name"
         value={lastName} 
         onChange={(e) => setLastName(e.target.value)} 
         style={{marginLeft:"3px"}}
@@ -101,6 +103,7 @@ export default function Signup() {
       <div className="form-group">
         <label htmlFor="">Email</label>
         <input type="text" 
+        placeholder="Email"
         value={email} 
         onChange={(e) => setEmail(e.target.value)} 
         style={{marginLeft:"3px"}} 
@@ -111,6 +114,7 @@ export default function Signup() {
       <div className="form-group">
         <label htmlFor="">Address</label>
         <input type="text" 
+        placeholder="Address"
         value={address} 
         onChange={(e) => setAddress(e.target.value)} 
         style={{marginLeft:"3px"}} 
@@ -136,6 +140,7 @@ export default function Signup() {
         }}>
         <label htmlFor="">Password</label>
         <input 
+        placeholder="Password"
         type={showPassword ? "text" : "password"} 
         value={password} 
         onChange={(e) => setPassword(e.target.value)} 
