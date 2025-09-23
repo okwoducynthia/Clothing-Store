@@ -38,7 +38,7 @@ const ProductDetails = () => {
 
   const fetchList = async () => {
     try {
-      const response = await axios.get(`https://backend-clothing-store-q0jh.onrender.com/api/products/single/${id}`)
+      const response = await axios.get(`https://backend-cynova-store.onrender.com/api/products/single/${id}`)
       if(response.data.success){
         setList(response.data.product);
       }

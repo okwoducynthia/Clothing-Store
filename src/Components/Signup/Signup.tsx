@@ -44,7 +44,7 @@ export default function Signup() {
     };
     try {
       const response = await axios.post(
-        "https://backend-clothing-store-q0jh.onrender.com/api/user/signup",
+        "https://backend-cynova-store.onrender.com/api/user/signup",
         data,
         {
           headers,

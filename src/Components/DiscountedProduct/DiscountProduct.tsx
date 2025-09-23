@@ -9,7 +9,7 @@ const DiscountedProducts= () => {
   
     const fetchList = async () => {
       try {
-        const response = await axios.get("http://localhost:7000/api/products/list")
+        const response = await axios.get("https://backend-cynova-store.onrender.com/api/products/list")
         if(response.data.success){
           const firstFour = response.data.products.slice(28, 32);
           setList(firstFour);

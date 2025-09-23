@@ -10,7 +10,7 @@ const PopularProducts= () => {
 
   const fetchList = async () => {
     try {
-      const response = await axios.get("https://backend-clothing-store-q0jh.onrender.com/api/products/list")
+      const response = await axios.get("https://backend-cynova-store.onrender.com/api/products/list")
       if(response.data.success){
         const firstFour = response.data.products.slice(0, 4);
         setList(firstFour);
