@@ -1,5 +1,5 @@
 .Hero-main-container {
-  background-image:
+  background-image: linear-gradient(rgba(0, 0, 0, 0.473)),
     url("./bg-images/hero-bg.jpg");
   background-size: cover;
   background-position: center;
