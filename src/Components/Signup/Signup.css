@@ -54,7 +54,6 @@ input {
 }
 .submit-button-container button:hover {
   background-color: rgba(189, 101, 43, 0.842);
-  color: black;
 }
 
 /* ====MEDIA QUERY STARTS HERE==== */
