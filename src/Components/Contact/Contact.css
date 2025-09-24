@@ -1,5 +1,5 @@
 .contact-hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.541)), url("./bg-images/bg4.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.541)), url("/bg-images/bg4.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

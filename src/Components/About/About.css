@@ -1,6 +1,6 @@
 .about-container {
   background-image: linear-gradient(rgba(0, 0, 0, 0.356)),
-    url("./bg-images/bg1.jpg");
+    url("/bg-images/bg1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
